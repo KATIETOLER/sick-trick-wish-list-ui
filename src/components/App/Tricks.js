@@ -2,7 +2,7 @@ import React from 'react'
 import './Tricks.css'
 import Card from './Card'
 
-const Tricks = ({ tricks }) => {
+const Tricks = ({ tricks, deleteTrick }) => {
 	const allTricks = tricks.map((trick) => {
 		return (
 			<Card
@@ -12,6 +12,7 @@ const Tricks = ({ tricks }) => {
 				tutorial={trick.tutorial}
 				id={trick.id}
 				key={trick.id}
+				deleteTrick={deleteTrick}
 			/>
 		)
 	})

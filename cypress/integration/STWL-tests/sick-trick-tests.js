@@ -39,6 +39,7 @@ describe('Sick Trick Wish List', () => {
 		cy.get('.App')
 		cy.get('form')
 		cy.get('.name').type('The coolest trick')
+		cy.get('.name').should('have.value', 'The coolest trick')
 	})
 
 	it('should be able to type the trick name in the form', () => {
@@ -46,6 +47,7 @@ describe('Sick Trick Wish List', () => {
 		cy.get('.App')
 		cy.get('form')
 		cy.get('.tutorial').type('www.YouTube.com/cool-trick')
+		cy.get('.tutorial').should('have.value', 'www.YouTube.com/cool-trick')
 	})
 
 	it('should be able to select a stance in the form', () => {
@@ -62,7 +64,7 @@ describe('Sick Trick Wish List', () => {
 		cy.get('#obstacle').select('Ledge')
 	})
 
-	it.only('should be able to add a new trick', () => {
+	it('should be able to add a new trick', () => {
 		cy.visit('http://localhost:3000/')
 		cy.get('form')
 		cy.get('.name').type('cool trick')
@@ -71,6 +73,7 @@ describe('Sick Trick Wish List', () => {
 		cy.get('#stance').select('Switch')
 		cy.get('form').submit()
 	})
+
 	it('should clear out inputs after form submission', () => {
 		cy.visit('http://localhost:3000/')
 		cy.get('form')
@@ -79,7 +82,10 @@ describe('Sick Trick Wish List', () => {
 		cy.get('button').click()
 		cy.get('.name').should('be.empty')
 	})
-})
 
-// Write a test that checks that when data is put into the form, the value is reflected in that form input.
-// Write a test to check the user flow of adding a new trick to the DOM.
+	// it('should have a new card after submission', () => {
+	// 	cy.get('.App')
+	// 	cy.get('.tricks-container')
+	// 	cy.get('.card').get('h3').should('have.value', 'another cool trick')
+	// })
+})

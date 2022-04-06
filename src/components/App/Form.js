@@ -65,7 +65,7 @@ class Form extends Component {
 				</select>
 				<select
 					name='stance'
-					id='obstacle'
+					id='stance'
 					value={this.state.stance}
 					onChange={(event) => this.handleChange(event)}>
 					<option value='Regular'>Regular</option>

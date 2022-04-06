@@ -17,9 +17,14 @@ class App extends Component {
 			.getTricks()
 			.then((data) => this.setState({ tricks: data }))
 			.catch((error) => this.setState({ error: error }))
+		// fetchData.postTrick(newTrick)
 	}
 	addTrick = (newTrick) => {
 		this.setState({ tricks: [...this.state.tricks, newTrick] })
+	}
+	deleteTrick = (id) => {
+		const filteredTricks = this.state.tricks.filter((trick) => trick.id != id)
+		this.setState({ tricks: filteredTricks })
 	}
 
 	render() {
@@ -27,7 +32,7 @@ class App extends Component {
 			<div className='App'>
 				<h1 className='title'>Sick Trick Wish List</h1>
 				<Form addTrick={this.addTrick} />
-				<Tricks tricks={this.state.tricks} />
+				<Tricks tricks={this.state.tricks} deleteTrick={this.deleteTrick} />
 			</div>
 		)
 	}
