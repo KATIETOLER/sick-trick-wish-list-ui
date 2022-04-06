@@ -41,11 +41,13 @@ class Form extends Component {
 					name='name'
 					placeholder='trick name'
 					value={this.state.name}
+					className='name'
 					onChange={(event) => this.handleChange(event)}
 				/>
 				<input
 					type='text'
 					name='tutorial'
+					className='tutorial'
 					placeholder='tutorial link'
 					value={this.state.tutorial}
 					onChange={(event) => this.handleChange(event)}
