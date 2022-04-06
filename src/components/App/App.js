@@ -11,15 +11,17 @@ class App extends Component {
 			tricks: [],
 			error: '',
 		}
+		this.newTrick = ''
 	}
 	componentDidMount = () => {
 		fetchData
 			.getTricks()
 			.then((data) => this.setState({ tricks: data }))
 			.catch((error) => this.setState({ error: error }))
-		// fetchData.postTrick(newTrick)
+		// fetchData.postTrick(this.newTrick)
 	}
 	addTrick = (newTrick) => {
+		this.newTrick = newTrick
 		this.setState({ tricks: [...this.state.tricks, newTrick] })
 	}
 	deleteTrick = (id) => {
