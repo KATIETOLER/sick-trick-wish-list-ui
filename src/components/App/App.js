@@ -1,5 +1,7 @@
 import { Component } from 'react'
 import './App.css'
+import Tricks from './Tricks'
+import fetchData from './api-calls'
 
 class App extends Component {
 	constructor() {
@@ -9,11 +11,18 @@ class App extends Component {
 			error: '',
 		}
 	}
+	componentDidMount = () => {
+		fetchData
+			.getTricks()
+			.then((data) => this.setState({ tricks: data }))
+			.catch((error) => this.setState({ error: error }))
+	}
 
 	render() {
 		return (
 			<div className='App'>
 				<h1>Sick Trick Wish List</h1>
+				<Tricks tricks={this.state.tricks} />
 			</div>
 		)
 	}
