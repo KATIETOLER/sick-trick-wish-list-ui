@@ -11,7 +11,9 @@ const Card = ({ name, obstacle, tutorial, stance, id, deleteTrick }) => {
 			<a href={tutorial} className='tutorial-link'>
 				Watch Tutorial
 			</a>
-			<button onClick={() => deleteTrick(id)}>x</button>
+			<p>
+				<button onClick={() => deleteTrick(id)}>🛹 DELETE </button>
+			</p>
 		</div>
 	)
 }
