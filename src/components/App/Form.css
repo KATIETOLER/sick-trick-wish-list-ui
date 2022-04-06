@@ -1,0 +1,16 @@
+form {
+	background-color: whitesmoke;
+	border-radius: 1em;
+	padding: 3vw;
+	width: 50vw;
+}
+
+input,
+select,
+button {
+	margin: 5px;
+	width: 20%;
+	border-radius: 0.5em;
+	border: 2px solid black;
+	font-size: 18px;
+}
