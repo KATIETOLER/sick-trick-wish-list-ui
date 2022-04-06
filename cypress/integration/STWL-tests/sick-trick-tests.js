@@ -48,13 +48,28 @@ describe('Sick Trick Wish List', () => {
 		cy.get('.tutorial').type('www.YouTube.com/cool-trick')
 	})
 
-	it('should be able to add a new trick', () => {
+	it('should be able to select a stance in the form', () => {
+		cy.visit('http://localhost:3000/')
+		cy.get('.App')
+		cy.get('form')
+		cy.get('#stance').select('Switch')
+	})
+
+	it('should be able to select an obstacle in the form', () => {
+		cy.visit('http://localhost:3000/')
+		cy.get('.App')
+		cy.get('form')
+		cy.get('#obstacle').select('Ledge')
+	})
+
+	it.only('should be able to add a new trick', () => {
 		cy.visit('http://localhost:3000/')
 		cy.get('form')
 		cy.get('.name').type('cool trick')
 		cy.get('.tutorial').type('www.YouTube.com/cool-trick')
-		cy.get('button').click()
-		cy.get('.card')
+		cy.get('#obstacle').select('Pool')
+		cy.get('#stance').select('Switch')
+		cy.get('form').submit()
 	})
 	it('should clear out inputs after form submission', () => {
 		cy.visit('http://localhost:3000/')
